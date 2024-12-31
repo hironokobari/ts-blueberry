@@ -41,12 +41,31 @@ const rl = createInterface({
 //   rl.close;
 // });
 
-rl.question('数字を入力してください（number型で処理されます）:', (num1) => {
-  const num2 = Number(num1); // number型に変換
-  /**
-   * Numberで変換できなかった場合NaNが返却される
-   */
-  const sum1 = num2 + 1000;
-  console.log(sum1);
-  rl.close;
-});
+// rl.question('数字を入力してください（number型で処理されます）:', (num1) => {
+//   const num2 = Number(num1); // number型に変換
+//   /**
+//    * Numberで変換できなかった場合NaNが返却される
+//    */
+//   const sum1 = num2 + 1000;
+//   console.log(sum1);
+//   rl.close;
+// });
+
+/**
+ * オペランドと型
+ * number型とbigint型を混在させることはできない
+ */
+const res1 = 5 - 1.89; // number型
+const res2 = 2n ** 5n; // bigint型
+
+/**
+ * インクリメント、デクリメント
+ * 明示的な理由がない限り、前置インクリメントを使用する
+ */
+let foo = 10;
+console.log(++foo); // 11
+console.log(--foo); // 10
+console.log(foo--); // 10（変動前の値が出力される）
+
+let x = 5;
+let y = x++; // yには5が代入され、その後でxが6になる
