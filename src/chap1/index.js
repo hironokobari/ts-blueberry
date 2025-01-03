@@ -60,3 +60,24 @@ console.log(--foo); // 10
 console.log(foo--); // 10（変動前の値が出力される）
 let x = 5;
 let y = x++; // yには5が代入され、その後でxが6になる
+/**
+ * 三項演算子
+ * boolean以外の型が与えられた場合は自動的に型変換が行われる
+ * false, 0, '' (空文字), null, undefined, NaNはfalseとして処理される
+ */
+const value = null;
+const result = value ? '存在する' : '存在しない'; // 存在しない
+console.log(result);
+// rl.question('名前を入力してください:', (name: string) => {
+//   if(name == '') {
+//     name = '名無し';
+//   }
+//   console.log(`こんにちは、${name}さん`);
+//   rl.close;
+// });
+/**
+ * ビット演算
+ */
+console.log(0b0101 | 0b1100);
+console.log(0b0101 & 0b1100);
+console.log(~0b0101);
