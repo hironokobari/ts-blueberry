@@ -1,15 +1,17 @@
-name: Manual
+name: Manual workflow
+
 on:
   workflow_dispatch:
     inputs:
-        greeting:
-            type: string
-            default: Hello
-            required: true
-            description: A cheerful word
+      greeting:
+        description: 'Greeting parameter'
+        required: true
+        default: 'hello'
+
 jobs:
-    run:
-        runs-on: ubuntu-latest
-        steps:
-            - run: echo "${{ inputs.greeting }}"
-            - uses: actions/checkout@v4
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Say hello
+        run: echo "The greeting is ${{ github.event.inputs.greeting }}"
